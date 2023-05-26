@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@types/node": "^20.2.4",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "name": "typescript-study",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts":{
+    "dev":"ts-node src",
+    "build":"tsc && node dist"
+  }
+}
