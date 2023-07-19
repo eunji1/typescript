@@ -1,5 +1,5 @@
 import "./App.css";
-import AddTodo from "./components/AddTodo";
+import AddTodo from "./components/AddTodo/AddTodo";
 import ThemeWrapper from "./components/ThemeWrapper";
 import Todos from "./containers/Todos";
 import ThemeProvider from "./context/themeContext";

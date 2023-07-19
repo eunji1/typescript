@@ -1,8 +1,8 @@
 export interface ITodo {
-  id: number;
+  id?: number;
   title: string;
   description: string;
-  status: boolean;
+  status?: boolean;
 }
 
 export type TodocontextType = {
