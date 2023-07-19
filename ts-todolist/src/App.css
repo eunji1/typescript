@@ -42,57 +42,57 @@
   color: #fff;
 }
 
-.Card {
+/* .Card {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #fff;
   padding: 0.5rem 1rem;
-}
+} */
 
 .Card:not(:last-child) {
   border-bottom: 1px solid #333333;
 }
 
-.Card--text h1 {
+/* .Card--text h1 {
   color: #0970b4;
   text-transform: capitalize;
-}
+} */
 
-.Card--button {
+/* .Card--button {
   padding: 0.4rem 1rem;
   border-radius: 20px;
   cursor: pointer;
   background: #fff;
   margin-bottom: 1rem;
-}
+} */
 
 [data-theme='dark'] .Form {
   background: #292828;
   color: #fff;
 }
 
-.Form {
+/* .Form {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
   background: #fff;
   margin-bottom: 1rem;
-}
+} */
 
-.Form > div {
+/* .Form > div {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 [data-theme='dark'] .Form input {
   background: #363636;
   color: #fff;
 }
 
-.Form input {
+/* .Form input {
   background: #f5f6f7;
   padding: 0.5rem 1rem;
   border: 1px solid #0970b4;
@@ -100,16 +100,16 @@
   display: block;
   margin: 0.3rem 1rem 0 0;
   outline: none;
-}
+} */
 
-.Form button {
+/* .Form button {
   background: #099dff;
   color: #fff;
   padding: 0.5rem 1rem;
   border-radius: 20px;
   cursor: pointer;
   border: none;
-}
+} */
 
 .line-through {
   text-decoration: line-through;
