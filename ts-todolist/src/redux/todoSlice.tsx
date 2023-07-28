@@ -1,16 +1,16 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { ITodo } from "../@types/todo";
-
+import { v4 as uuidv4 } from "uuid";
 const initialState: { todos: ITodo[] } = {
   todos: [
     {
-      id: 1,
+      id: "num1",
       title: "post 1",
       description: "this is a description",
       status: false,
     },
     {
-      id: 2,
+      id: "num2",
       title: "post 2",
       description: "this is a description",
       status: true,
@@ -21,25 +21,27 @@ export const todoSlice = createSlice({
   name: "todo",
   initialState,
   reducers: {
-    initTodo: (state, action) => {},
-    saveTodo: (state, action: PayloadAction<ITodo>) => {
+    initTodo: (state, { payload }) => {
+      console.log("initTodo", state, payload);
+    },
+    addTodo: (state, { payload }: PayloadAction<ITodo>) => {
       const newTodo: ITodo = {
-        id: Math.random(),
-        title: action.payload.todo.title,
-        description: action.payload.todo.description,
+        id: uuidv4(),
+        title: payload.title,
+        description: payload.description,
         status: false,
       };
       state.todos = [...state.todos, newTodo];
     },
-    updateTodo = (state, action) => {
+    checkTodo: (state, { payload }: PayloadAction<string>) => {
       state.todos.filter((todo: ITodo) => {
-        if (todo.id === action.payload.id) {
-          todo.status = true;
+        if (todo.id === payload) {
+          todo.status = !todo.status;
         }
       });
     },
   },
 });
 
-export const { initTodo, saveTodo, updateTodo } = todoSlice.actions;
+export const { initTodo, addTodo, checkTodo } = todoSlice.actions;
 export const todoReducer = todoSlice.reducer;
