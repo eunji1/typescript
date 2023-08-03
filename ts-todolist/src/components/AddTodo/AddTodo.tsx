@@ -1,8 +1,10 @@
-import React, { useContext, useState } from "react";
-import { todoContext } from "../../context/todoContext";
-import { ITodo, TodocontextType } from "../../@types/todo";
+import React, { useState } from "react";
+import { ITodo } from "../../@types/todo";
 import { styled } from "styled-components";
-
+import { useDispatch, useSelector } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
+import { RootState } from "../../redux/rootReducer";
+import { addTodo } from "../../redux/todoSlice";
 const StyledForm = styled.form`
   display: flex;
   justify-content: space-between;
@@ -36,22 +38,25 @@ const StyledAddButton = styled.button`
   cursor: pointer;
   border: none;
 `;
-
+interface formType {
+  title: string;
+  description: string;
+}
 const AddTodo: React.FC = () => {
-  const { saveTodo } = useContext(todoContext) as TodocontextType;
-  const [formData, setFormData] = useState<ITodo | any>();
+  const dispatch = useDispatch();
+
+  const [formData, setFormData] = useState<formType>();
+  console.log(formData);
   const handleForm = (e: React.FormEvent<HTMLInputElement>): void => {
     setFormData({
       ...formData,
       [e.currentTarget.id]: e.currentTarget.value,
     });
   };
-  const handleSaveTodo = (
-    e: React.FormEvent,
-    formData: { title: string; description: string }
-  ) => {
+  const handleSaveTodo = (e: React.FormEvent, formData: formType) => {
     e.preventDefault();
-    saveTodo(formData);
+    dispatch(addTodo(formData));
+    // saveTodo(formData);
   };
   const todoArr = [{ name: "title" }, { name: "description" }];
   return (

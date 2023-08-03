@@ -40,8 +40,14 @@ export const todoSlice = createSlice({
         }
       });
     },
+    removeTodo: (state, { payload }: PayloadAction<string>) => {
+      // 반성하자 정말
+      state.todos = [
+        ...state.todos.filter((todo: ITodo) => todo.id !== payload),
+      ];
+    },
   },
 });
 
-export const { initTodo, addTodo, checkTodo } = todoSlice.actions;
+export const { initTodo, addTodo, checkTodo, removeTodo } = todoSlice.actions;
 export const todoReducer = todoSlice.reducer;
